@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONT AWESOME CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- type module allows us to use modules in js -->
+    <script src="./js/main.js" type="module"></script>
+    <title>Google Clone | Welcome</title>
+    <!-- <style>
+      img {
+        width: 40vw;
+      }
+    </style> -->
+  </head>
+  <body>
+    <!-- <img
+      src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png"
+      alt="Google Logo"
+    /> -->
+
+    <main>
+      <h1 class="offscreen">Wikipedia Powered Search Engine</h1>
+      <section class="search-entry">
+        <h2 class="offscreen">Search Term Entry</h2>
+        <div class="logo" aria-hidden="true">
+          <span class="blue">S</span>
+          <span class="red">e</span>
+          <span class="yellow">a</span>
+          <span class="blue">r</span>
+          <span class="green">c</span>
+          <span class="red">h</span>
+          <span class="blue">M</span>
+          <span class="yellow">e</span>
+          <span class="red exclaim">!</span>
+        </div>
+        <form id="search-bar" class="search-bar" role="search">
+          <label for="search" class="offscreen">Enter a search term</label>
+          <input type="text" id="search" autocomplete="off" />
+          <div
+            id="clear"
+            class="none btn clear"
+            role="button"
+            tabindex="0"
+            aria-label="Clear search terms"
+          >
+            <i class="fas fa-times"></i>
+          </div>
+          <button
+            id="search-button"
+            class="btn search-button"
+            aria-label="Submit Button"
+          >
+            <i class="fas fa-search blue"></i>
+          </button>
+        </form>
+      </section>
+      <section class="results">
+        <h2 class="offscreen">Search Results</h2>
+        <div class="stats-bar">
+          <div id="stats" class="stats" aria-live="assertive"></div>
+        </div>
+        <div id="search-results" class="search-results">
+          <!-- <div class="results-item">
+            <div class="results-title">
+              <a href="#">Husky</a>
+            </div>
+            <div class="results-content">
+              <div class="results-image">
+                <img
+                  src="data:image/jpeg;base64,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"
+                  alt="Husky"
+                />
+              </div>
+              <div class="results-text">
+                <p class="results-description">
+                  The Siberian Husky, a thickly coated, compact sled dog of
+                  medium size and great endurance, was developed to work in
+                  packs, pulling light loads at moderate speeds over vast frozen
+                  expanses.
+                </p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        <span aria-hidden="true">&lt;&lt;</span> Powered by
+        <a href="https://wikipedia.org" target="_blank">Wikipedia</a>
+        <span aria-hidden="true">&gt;&gt;</span>
+      </p>
+    </footer>
+  </body>
+</html>
